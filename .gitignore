@@ -1,0 +1,6 @@
+/node_modules/
+/public/build/
+/.vscode
+/*.log
+
+.DS_Store
