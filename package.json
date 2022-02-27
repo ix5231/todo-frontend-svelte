@@ -9,9 +9,11 @@
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "test": "jest",
     "genapi": "openapi-generator-cli generate -i ../todo-doc/api-schema/web-bff.json -g typescript-axios -o ./src/api",
-    "genschema": "openapi-typescript  ../todo-doc/api-schema/web-bff.json --output src/api/schema.ts"
+    "genschema": "openapi-typescript  ../todo-doc/api-schema/web-bff.json --output src/api/schema.ts",
+    "gendef": "swagger-cli bundle -r -o src/api/def.json ../todo-doc/api-schema/web-bff.json"
   },
   "devDependencies": {
+    "@apidevtools/swagger-cli": "^4.0.4",
     "@openapitools/openapi-generator-cli": "^2.4.26",
     "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "^17.1.0",
@@ -24,6 +26,7 @@
     "autoprefixer": "^10.4.2",
     "jest": "^27.5.1",
     "msw": "^0.38.1",
+    "openapi-types": "^10.0.0",
     "openapi-typescript": "^5.2.0",
     "postcss": "^8.4.7",
     "rollup": "^2.68.0",
