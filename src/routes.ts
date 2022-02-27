@@ -3,7 +3,7 @@ import Login from './pages/login/Login.svelte';
 import NotFound from './pages/NotFound.svelte';
 
 export default {
-  '/': Home,
   '/login': Login,
+  '/': Home,
   '*': NotFound,
 }
