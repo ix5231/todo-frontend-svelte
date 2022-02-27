@@ -7,9 +7,11 @@
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "test": "jest"
+    "test": "jest",
+    "genapi": "openapi-generator-cli generate -i ../todo-doc/api-schema/web-bff.json -g typescript-axios"
   },
   "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.4.26",
     "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-node-resolve": "^11.2.1",
@@ -20,6 +22,7 @@
     "@types/jest": "^27.4.1",
     "autoprefixer": "^10.4.2",
     "jest": "^27.5.1",
+    "msw": "^0.38.1",
     "postcss": "^8.4.7",
     "rollup": "^2.68.0",
     "rollup-plugin-css-only": "^3.1.0",
