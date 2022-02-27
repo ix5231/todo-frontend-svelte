@@ -8,7 +8,7 @@
     "start": "sirv public --no-clear",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "test": "jest",
-    "genapi": "openapi-generator-cli generate -i ../todo-doc/api-schema/web-bff.json -g typescript-axios"
+    "genapi": "openapi-generator-cli generate -i ../todo-doc/api-schema/web-bff.json -g typescript-axios -o ./src/api"
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.4.26",
