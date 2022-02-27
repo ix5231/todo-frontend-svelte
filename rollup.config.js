@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
+import alias from '@rollup/plugin-alias';
 import sveltePreprocess from 'svelte-preprocess';
 import css from 'rollup-plugin-css-only';
 
@@ -57,6 +58,12 @@ export default {
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
 		css({ output: 'bundle.css' }),
+		alias({
+			entries: [
+				{ find: '#root', replacement: '' },
+				{ find: '#src', replacement: 'src' },
+			]
+		}),
 
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
