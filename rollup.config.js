@@ -62,6 +62,7 @@ export default {
 			entries: [
 				{ find: '#root', replacement: '' },
 				{ find: '#src', replacement: 'src' },
+				{ find: '#api', replacement: 'src/api' },
 			]
 		}),
 

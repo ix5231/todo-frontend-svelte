@@ -9,6 +9,8 @@
     "paths": {
       "#root/*": ["*"],
       "#src/*": ["src/*"],
-    }
+      "#api/*": ["src/api/*"],
+    },
+    "resolveJsonModule": true
   }
 }
