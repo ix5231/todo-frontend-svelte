@@ -8,7 +8,8 @@
     "start": "sirv public --no-clear",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "test": "jest",
-    "genapi": "openapi-generator-cli generate -i ../todo-doc/api-schema/web-bff.json -g typescript-axios -o ./src/api"
+    "genapi": "openapi-generator-cli generate -i ../todo-doc/api-schema/web-bff.json -g typescript-axios -o ./src/api",
+    "genschema": "openapi-typescript  ../todo-doc/api-schema/web-bff.json --output src/api/schema.ts"
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.4.26",
@@ -23,6 +24,7 @@
     "autoprefixer": "^10.4.2",
     "jest": "^27.5.1",
     "msw": "^0.38.1",
+    "openapi-typescript": "^5.2.0",
     "postcss": "^8.4.7",
     "rollup": "^2.68.0",
     "rollup-plugin-css-only": "^3.1.0",
@@ -39,6 +41,7 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
+    "axios": "^0.26.0",
     "sirv-cli": "^2.0.2",
     "svelte-spa-router": "^3.2.0"
   }
