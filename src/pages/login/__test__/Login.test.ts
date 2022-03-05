@@ -1,9 +1,7 @@
-import { server, render, waitFor, userEvent, within, renderRoute, getLocation, rest } from "#test-helpers";
+import { server, waitFor, userEvent, within, renderRoute, getLocation, rest } from "#test-helpers";
 
-import Login from '../Login.svelte';
-
-test('Shows login form', () => {
-  const { getByText, getByPlaceholderText, getByRole } = render(Login);
+test('Shows login form', async () => {
+  const { getByText, getByPlaceholderText, getByRole } = await renderRoute("/login");
 
   expect(getByText('Todo keeper')).toBeInTheDocument();
 
@@ -16,7 +14,6 @@ test('Shows login form', () => {
 test('Goto home page when correct ID/PW is provided', async () => {
   server.use(
     rest.post('/v1/login', (_req, res, ctx) => {
-      ctx.delay(2000);
       ctx.status(200);
       return res();
     })
