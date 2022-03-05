@@ -17,9 +17,7 @@ test('Goto home page when correct ID/PW is provided', async () => {
   await waitFor(() => {
     expect(getByRole('button', { name: 'Login' })).toBeDisabled();
   });
-  await waitFor(() => {
-    within(getByRole('button', { name: 'Login' })).getByRole('img', { name: 'Trying login...' });
-  });
+  within(getByRole('button', { name: 'Login' })).getByRole('img', { name: 'Trying login...' });
 
   await waitFor(() => expect(router.getLocation()).toEqual('/'));
 });
