@@ -5,11 +5,13 @@
   "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
 
   "compilerOptions": {
+    "allowJs": true,
     "baseUrl": ".",
     "paths": {
       "#root/*": ["*"],
       "#src/*": ["src/*"],
       "#api/*": ["src/api/*"],
+      "#test-helpers": ["src/testHelpers"],
     },
     "resolveJsonModule": true
   }

@@ -5,6 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import alias from '@rollup/plugin-alias';
+import json from '@rollup/plugin-json';
 import sveltePreprocess from 'svelte-preprocess';
 import css from 'rollup-plugin-css-only';
 
@@ -63,8 +64,10 @@ export default {
 				{ find: '#root', replacement: '' },
 				{ find: '#src', replacement: 'src' },
 				{ find: '#api', replacement: 'src/api' },
+				{ find: '#test-helpers', replacement: 'src/testHelpers' },
 			]
 		}),
+		json(),
 
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In

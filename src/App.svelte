@@ -3,9 +3,7 @@
 	import routes from "./routes";
 </script>
 
-<main>
-	<Router {routes} />
-</main>
+<Router routes={routes} />
 
 <style global lang="postcss">
 	@tailwind base;

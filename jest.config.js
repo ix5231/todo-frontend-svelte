@@ -1,22 +1,34 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
-  preset: 'ts-jest',
+  verbose: true,
+  preset: 'ts-jest/presets/js-with-babel',
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [
-    "@testing-library/jest-dom/extend-expect"
+    "@testing-library/jest-dom/extend-expect",
+    "<rootDir>/src/testHelpers/setup/mockServer.ts"
+  ],
+  transformIgnorePatterns: [
+    "/node_modules/((?!svelte-spa-router)/)"
   ],
   transform: {
     "^.+\\.svelte$": [
       "svelte-jester",
       {
-        "preprocess": true
+        "preprocess": "./svelte.config.js"
       }
     ],
-    "^.+\\.ts$": "ts-jest"
+    "^.+\\.ts$": "ts-jest",
+    "^.+\\.js$": "babel-jest"
   },
   moduleFileExtensions: [
     "js",
     "ts",
     "svelte"
-  ]
+  ],
+  moduleNameMapper: {
+    "#root/(.*)$": "<rootDir>/$1",
+    "#src/(.*)$": "<rootDir>/src/$1",
+    "#api/(.*)$": "<rootDir>/src/api/$1",
+    "#test-helpers": "<rootDir>/src/testHelpers"
+  }
 };
