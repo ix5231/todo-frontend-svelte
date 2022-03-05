@@ -11,6 +11,7 @@
       "#root/*": ["*"],
       "#src/*": ["src/*"],
       "#api/*": ["src/api/*"],
+      "#components/*": ["src/components/*"],
       "#test-helpers": ["src/testHelpers"],
     },
     "resolveJsonModule": true

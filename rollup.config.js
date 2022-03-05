@@ -64,6 +64,7 @@ export default {
 				{ find: '#root', replacement: '' },
 				{ find: '#src', replacement: 'src' },
 				{ find: '#api', replacement: 'src/api' },
+				{ find: '#components', replacement: 'src/components' },
 				{ find: '#test-helpers', replacement: 'src/testHelpers' },
 			]
 		}),

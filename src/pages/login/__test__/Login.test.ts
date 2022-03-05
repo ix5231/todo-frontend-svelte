@@ -1,19 +1,8 @@
-import { server, waitFor, userEvent, within, renderRoute, getLocation, rest } from "#test-helpers";
-
-test('Shows login form', async () => {
-  const { getByText, getByPlaceholderText, getByRole } = await renderRoute("/login");
-
-  expect(getByText('Todo keeper')).toBeInTheDocument();
-
-  expect(getByPlaceholderText('ID')).toBeInTheDocument();
-  expect(getByPlaceholderText('Password')).toBeInTheDocument();
-
-  expect(getByRole('button', { name: 'Login' })).toBeInTheDocument();
-});
+import { mock, waitFor, userEvent, within, renderRoute, router } from "#test-helpers";
 
 test('Goto home page when correct ID/PW is provided', async () => {
-  server.use(
-    rest.post('/v1/login', (_req, res, ctx) => {
+  mock.server.use(
+    mock.rest.post('/v1/login', (_req, res, ctx) => {
       ctx.status(200);
       return res();
     })
@@ -32,7 +21,7 @@ test('Goto home page when correct ID/PW is provided', async () => {
     within(getByRole('button', { name: 'Login' })).getByRole('img', { name: 'Trying login...' });
   });
 
-  await waitFor(() => expect(getLocation()).toEqual('/'));
+  await waitFor(() => expect(router.getLocation()).toEqual('/'));
 });
 
 test.todo('When the login button is clicked without ID, login API is not called and shows ');

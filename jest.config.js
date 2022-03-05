@@ -29,6 +29,7 @@ module.exports = {
     "#root/(.*)$": "<rootDir>/$1",
     "#src/(.*)$": "<rootDir>/src/$1",
     "#api/(.*)$": "<rootDir>/src/api/$1",
+    "#components/(.*)$": "<rootDir>/src/components/$1",
     "#test-helpers": "<rootDir>/src/testHelpers"
   }
 };
