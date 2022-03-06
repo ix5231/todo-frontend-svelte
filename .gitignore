@@ -2,5 +2,6 @@
 /public/build/
 /.vscode
 /*.log
+/coverage
 
 .DS_Store
