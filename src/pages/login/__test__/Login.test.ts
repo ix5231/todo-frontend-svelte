@@ -22,6 +22,4 @@ test('Goto home page when correct ID/PW is provided', async () => {
   await waitFor(() => expect(router.getLocation()).toEqual('/'));
 });
 
-test.todo('When the login button is clicked without ID, login API is not called and shows ');
-
 export {};
