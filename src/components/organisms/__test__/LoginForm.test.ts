@@ -1,4 +1,4 @@
-import { render, userEvent, waitFor } from "#test-helpers";
+import { render, userEvent, waitFor } from '#test-helpers';
 import LoginForm from '../LoginForm.svelte';
 
 test('Shows login form', () => {

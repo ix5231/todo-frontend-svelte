@@ -1,14 +1,16 @@
-import { mock, waitFor, userEvent, within, renderRoute, router } from "#test-helpers";
+import {
+  mock, waitFor, userEvent, within, renderRoute, router,
+} from '#test-helpers';
 
 test('Goto home page when correct ID/PW is provided', async () => {
   mock.server.use(
     mock.rest.post('/v1/login', (_req, res, ctx) => {
       ctx.status(200);
       return res();
-    })
+    }),
   );
-  
-  const { getByRole, getByPlaceholderText } = await renderRoute("/login");
+
+  const { getByRole, getByPlaceholderText } = await renderRoute('/login');
 
   await userEvent.type(getByPlaceholderText('ID'), 'userid');
   await userEvent.type(getByPlaceholderText('Password'), 'password');

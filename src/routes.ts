@@ -6,4 +6,4 @@ export default {
   '/login': Login,
   '/': Home,
   '*': NotFound,
-}
+};
