@@ -18,8 +18,8 @@
       "#src/*": [
         "src/*"
       ],
-      "#api/*": [
-        "src/api/*"
+      "#api": [
+        "src/api"
       ],
       "#components/*": [
         "src/components/*"
