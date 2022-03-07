@@ -1,18 +1,32 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
-
-  "include": ["src/**/*", "global.d.ts"],
-  "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
-
+  "include": [
+    "src/**/*",
+  ],
+  "exclude": [
+    "node_modules/*",
+    "__sapper__/*",
+    "public/*"
+  ],
   "compilerOptions": {
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "#root/*": ["*"],
-      "#src/*": ["src/*"],
-      "#api/*": ["src/api/*"],
-      "#components/*": ["src/components/*"],
-      "#test-helpers": ["src/testHelpers"],
+      "#root/*": [
+        "*"
+      ],
+      "#src/*": [
+        "src/*"
+      ],
+      "#api/*": [
+        "src/api/*"
+      ],
+      "#components/*": [
+        "src/components/*"
+      ],
+      "#test-helpers": [
+        "src/testHelpers"
+      ],
     },
     "resolveJsonModule": true
   }
