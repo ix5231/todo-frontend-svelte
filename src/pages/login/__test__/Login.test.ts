@@ -32,7 +32,7 @@ test('When the login button is clicked without correct ID/PW, shows incorrect ID
   mock.server.use(
     mock.rest.post('/v1/login', (_req, res, ctx) => res(
       ctx.status(401),
-      ctx.json(def.paths['/login'].post.responses[401].content['application/json'].examples['Bad Login Credentials'].value),
+      ctx.json(def.paths['/v1/login'].post.responses[401].content['application/json'].examples['Bad Login Credentials'].value),
     )),
   );
 
@@ -48,7 +48,7 @@ test('When the server respond with validation error, shows incorrect ID/PW error
   mock.server.use(
     mock.rest.post('/v1/login', (_req, res, ctx) => res(
       ctx.status(400),
-      ctx.json(def.paths['/login'].post.responses[400].content['application/json'].examples['Validation Error'].value),
+      ctx.json(def.paths['/v1/login'].post.responses[400].content['application/json'].examples['Validation Error'].value),
     )),
   );
 
@@ -61,7 +61,7 @@ test('When the server respond with validation error, shows incorrect ID/PW error
 });
 
 test.each([
-  [500, def.paths['/login'].post.responses[500].content['application/json'].examples['Internal Server Error'].value],
+  [500, def.paths['/v1/login'].post.responses[500].content['application/json'].examples['Internal Server Error'].value],
   [400, { /* none */ }],
   [201, { /* none */ }],
 ])(

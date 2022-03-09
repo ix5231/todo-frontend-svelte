@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-  "/login": {
+  "/v1/login": {
     /** Request user to login */
     post: operations["userLogin"];
   };
