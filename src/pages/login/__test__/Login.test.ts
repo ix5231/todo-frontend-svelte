@@ -5,10 +5,7 @@ import { def } from '#api';
 
 test('Goto home page when correct ID/PW is provided', async () => {
   mock.server.use(
-    mock.rest.post('/v1/login', (_req, res, ctx) => {
-      ctx.status(200);
-      return res();
-    }),
+    mock.rest.post('/v1/login', (_req, res, ctx) => res(ctx.status(200))),
   );
 
   const { getByRole, getByPlaceholderText } = await renderRoute('/login');
@@ -25,12 +22,12 @@ test('Goto home page when correct ID/PW is provided', async () => {
   await waitFor(() => expect(router.getLocation()).toEqual('/'));
 });
 
-test('When the login button is clicked without Password, shows error', async () => {
+test('When the login button is clicked without correct ID/PW, shows error', async () => {
   mock.server.use(
-    mock.rest.post('/v1/login', (_req, res, ctx) => {
-      ctx.status(401);
-      return res(ctx.json(def.paths['/login'].post.responses[401].content['application/json'].examples['Bad Login Credentials'].value));
-    }),
+    mock.rest.post('/v1/login', (_req, res, ctx) => res(
+      ctx.status(401),
+      ctx.json(def.paths['/login'].post.responses[401].content['application/json'].examples['Bad Login Credentials'].value),
+    )),
   );
 
   const { getByRole, getByPlaceholderText } = await renderRoute('/login');

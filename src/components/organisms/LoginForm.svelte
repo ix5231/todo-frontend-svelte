@@ -3,6 +3,7 @@
   import { Diamonds } from "svelte-loading-spinners";
 
   export let loginInProgress: boolean = false;
+  export let apiError: string = "";
 
   let id = "";
   let password = "";
@@ -26,16 +27,17 @@
       error = "You need ID and Password to login.";
     }
   }
-  
+
+  $: showError = error != '' ? error : apiError;
 </script>
 
 <article class="border-2 p-8 shadow-md w-96">
   <h1 class="text-4xl font-bold text-center mb-4">Todo keeper</h1>
 
   <div class="flex flex-col space-y-4">
-    {#if error !== ""}
+    {#if showError != ''}
       <div id="loginErrorMessages" class="bg-red-200 px-5 py-3 text-center border-rose-500 border-2">
-        <p role="alert" class="text-red-700">{error}</p>
+        <p role="alert" class="text-red-700">{showError}</p>
       </div>
     {/if}
     <input
