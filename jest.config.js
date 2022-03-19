@@ -30,6 +30,7 @@ module.exports = {
     "#src/(.*)$": "<rootDir>/src/$1",
     "#api": "<rootDir>/src/api",
     "#components/(.*)$": "<rootDir>/src/components/$1",
+    "#utils": "<rootDir>/src/utils",
     "#test-helpers": "<rootDir>/src/testHelpers"
   }
 };
